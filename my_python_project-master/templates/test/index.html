@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/static/css/bootstrap.css">
+    <script src="/static/js/jquery.js"></script>
+    <script src="/static/js/bootstrap.js"></script>
+</head>
+<body>
+<nav class="navbar navbar-expand-sm bg-primary navbar-dark">
+  <ul class="navbar-nav">
+    <li class="nav-item active">
+      <a class="nav-link" href="#">首页</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#">明日学员</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#">明日图书</a>
+    </li>
+
+
+    {% if session['logged_in'] %}
+      <li class="nav-item">
+        <a class="nav-link" href="/login">欢迎{{session['username']}}登录</a>
+      </li>
+     <li class="nav-item">
+        <a class="nav-link" href="/logout">退出</a>
+      </li>
+   {% else %}
+          <!-- Dropdown -->
+      <li class="nav-item">
+        <a class="nav-link" href="/login">登录</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/register">注册</a>
+      </li>
+  {% endif %}
+
+  </ul>
+</nav>
+<div class="jumbotron">
+  <h1 class="display-3">欢迎来到{{name}}</h1>
+  <p >
+      {{message}}
+  </p>
+  <hr class="my-4">
+  <p>
+    <a class="btn btn-primary btn-lg" href="#" role="button">了解更多</a>
+  </p>
+
+
+   <div>
+
+        <a href="#" target="_blank">
+                <img class="lunbo_img" title="Apple AirPods 蓝牙无线耳机 适用于iPhone7/8/X手机耳机" src="/static/product/1.jpg"
+                     alt=""/>
+            </a>
+    </div>
+
+</div>
+</body>
+</html>

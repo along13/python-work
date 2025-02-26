@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>商品发布-广科二手交易市场</title>
+
+    <!--[if IE]>
+    <script src="http://libs.useso.com/js/html5shiv/3.7/html5shiv.min.js"></script>
+    <![endif]-->
+    <script src="{{ url_for('static',filename='js/jquery-3.1.1.min.js') }}"></script>
+    <link href="{{ url_for('static',filename='css/base.css') }}" rel="stylesheet" type="text/css"/>
+    <link href="{{ url_for('static',filename='sweetalert/sweetalert.css') }}" rel="stylesheet" type="text/css"/>
+    <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}" type="image/x-icon">
+    <link href="{{ url_for('static',filename='css/slider.css') }}" rel="stylesheet" type="text/css"/>
+    <link href="{{ url_for('static',filename='css/common.css') }}" rel="stylesheet" type="text/css"/>
+    <script src="{{ url_for('static',filename='js/base.js') }}"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css">
+    <!-- 可选的 Bootstrap 主题文件（一般不用引入） -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap-theme.min.css">
+    <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js"></script>
+    <script src="{{ url_for('static',filename='sweetalert/sweetalert.min.js') }}"></script>
+    <script src="{{ url_for('static',filename='sweetalert/xlalert.js') }}"></script>
+    <link href="{{ url_for('static',filename='circle/font-awesome.min.css') }}" rel="stylesheet" type="text/css"/>
+    <link href="{{ url_for('static',filename='circle/circle.css') }}" rel="stylesheet" type="text/css"/>
+
+    <link href="{{ url_for('static',filename='css/index.css') }}" rel="stylesheet" type="text/css"/>
+    <!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/ssi-uploader.css') }}">
+    <script type="text/javascript" src="{{ url_for('static',filename='js/index.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static',filename='js/jquery.jSlider.min.js') }}"></script>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/partialvxxiewslider.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/jSlider.min.css') }}">
+    <script src="{{ url_for('static',filename='js/login_mt.js') }}"></script>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/style_img.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='img_trans/default.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='img_trans/demo.css',v=2) }}">
+    <script type="text/javascript" src="{{ url_for('static',filename='js/dotdotdot.js') }}"></script>
+</head>
+<body>
+
+<div id="main_show_id" class="main_show">
+    <div class="inner_body">
+        <form action="/add_product" id="product_form" method="post" enctype="multipart/form-data">
+            <div class="input-group">
+                <span class="input-group-addon" id="basic-addon1">商品类别</span>
+                <div class="dropdown menu_cate">
+                    <button class="btn btn-default dropdown-toggle" type="button"
+                            id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true"
+                            aria-expanded="true">
+                        <span class="one_cate">一级类别</span>
+                        <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                        {% for category in categorys %}
+                            <li id="{{ category.id }}" class="one_li"><a
+                                    href="#">{{ category.cname }}</a></li>
+                        {% endfor %}
+                    </ul>
+                </div>
+
+            </div>
+            <div class="input-group">
+                <span class="input-group-addon" id="basic-addon2">商品名称</span>
+                <input type="text" maxlength="50" id="pname"
+                       class="form-control must_input_product" name="pname"
+                       placeholder="商品名称" aria-describedby="basic-addon1">
+            </div>
+            <div class="input-group">
+                <span class="input-group-addon" id="basic-addon3">商品描述</span>
+                <textarea class="form-control must_input_product" id="pDesc" name="pDesc"
+                          rows="3" placeholder="说说你的商品吧~"></textarea>
+            </div>
+            <div class="input-group">
+                <span class="input-group-addon" id="basic-addon4">商品数量</span>
+                <input type="number" max="100" maxlength="2" id="counts"
+                       onkeyup="this.value=this.value.replace(/\D/g,'')"
+                       onafterpaste="this.value=this.value.replace(/\D/g,'')"
+                       class="form-control must_input_product" name="counts"
+                       placeholder="商品数量" aria-describedby="basic-addon1">
+            </div>
+            <div class="input-group">
+                <span class="input-group-addon" id="basic-addon5">商品原价</span>
+                <input type="number" maxlength="8" id="old_price"
+                       onkeyup="value=value.replace(/[^\d.]/g,'')"
+                       class="form-control must_input_product" name="old_price"
+                       placeholder="商品原价" aria-describedby="basic-addon1">
+            </div>
+            <div class="input-group">
+                <span class="input-group-addon" id="basic-addon6">商品售价</span>
+                <input type="number" maxlength="8"
+                       onkeyup="value=value.replace(/[^\d.]/g,'')" id="new_price"
+                       class="form-control must_input_product" name="new_price"
+                       placeholder="你出价" aria-describedby="basic-addon1">
+            </div>
+            <div class="input-group">
+                <span class="input-group-addon" id="basic-addon7">商品照片</span>
+                <div class="htmleaf-container">
+                    <div class="container">
+
+                        <div class="row">
+                            <div class="col-md-12">
+
+                                <input type="file" name="file" multiple id="ssi-upload"/>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            {#<button type="submit" class="btn btn-success fb" style="width: 100%;"
+                    onclick="checkAll()">发布商品
+            </button>
+            #}
+             <input type="submit" class="btn btn-success fb" style="width: 100%;" value="发布商品">
+        </form>
+    </div>
+</div>
+</body>
+</html>

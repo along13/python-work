@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}{% endblock %}-普通商城（测试版）</title>
+
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/putong.css') }}"rel="stylesheet" type="text/css">
+<!--    <link rel="icon" href="//s01.mifile.cn/favicon.ico" type="image/x-icon" />-->
+    {% block head %}{% endblock %}
+</head>
+
+<body>
+    <!-- 导航栏 -->
+    {% include 'user/Navigation bar.html' %}
+<div id="main_show_id" class="main_show">
+    <!-- 主体 -->
+    {% block main %}{% endblock %}
+
+</div>
+    <!-- 踝部区 -->
+    {% include 'user/part/Ankle region.html' %}
+    <!-- 底部区 -->
+    {% include 'user/part/Bottom zone.html' %}
+    <!-- 功能区 -->
+    {% include 'user/part/Functional Zone.html' %}
+</body>
+
+</html>

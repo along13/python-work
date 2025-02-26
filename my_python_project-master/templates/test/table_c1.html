@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>学生信息表格</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 8px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <table>
+        <thead>
+            <tr>
+                <th>序号</th>
+                <th>商品ID</th>
+                <th>商品名字</th>
+                <th>商品价格</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>001</td>
+                <td>鞋子</td>
+                <td>129</td>
+            </tr>
+            {% for one_product in product_list %}
+            {% if loop.index == 1 %}
+                  <tr style="background-color: red;">
+                      <td> {{ loop.index }}</td>
+                    <td> {{ one_product.id }}</td>
+                    <td> {{ one_product.pname }}</td>
+                    <td> {{ one_product.old_price }}</td>
+                </tr>
+            {% else %}
+                <tr>
+                     <td> {{ loop.index }}</td>
+                    <td> {{ one_product.id }}</td>
+                    <td> {{ one_product.pname }}</td>
+                    <td> {{ one_product.old_price }}</td>
+                </tr>
+               {% endif %}
+            {% endfor %}
+
+        </tbody>
+    </table>
+</body>
+</html>

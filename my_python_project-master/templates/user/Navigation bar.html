@@ -1,0 +1,47 @@
+<div class="nav w2">
+    <div class="header w1">
+        <div class="nav-left">
+            <ul>
+                <li><a href="/">商城官网</a><span>|</span></li>
+                <li><a href="">云服务</a><span>|</span></li>
+                <li><a href="">有品</a><span>|</span></li>
+                <li><a href="">企业团购</a><span>|</span></li>
+                <li><a href="">协议规则</a><span>|</span></li>
+                <li><a href="">关于我们</a><span>|</span></li>
+                <li><a href="">服务中心</a><span>|</span></li>
+                <li><a href="">社区</a><span>|</span></li>
+                <li>
+                    <div class="app">
+                        <a href="">下载app</a>
+                        <div class="top-triango"></div>
+                        <div class="sub-app">
+                            <img src="" alt="">
+                            <p>商城APP</p>
+                        </div>
+                    </div>
+
+                </li>
+                <li><a href=""><span>|</span>智能生活</a><span>|</span></li>
+                <li><a href="">Select Location</a></li>
+            </ul>
+        </div>
+        <div class="nav-right">
+            <ul>
+                <li class="car"><a href=""><i></i>&nbsp;购物车&nbsp;&nbsp;(0)</a>
+                    <div class="empty">你家购物车空了</div>
+                </li>
+                {% if session['logged_in'] %}
+                <li><a href="/logout">[退出]</a></li>
+                <li><a href="/job">商品数据可视化</a><span>|</span></li>
+                <li><a href="/bashboard">商品管理</a><span>|</span></li>
+                <li><a href="">{{session['username']}},你好</a><span>|</span></li>
+                {% else %}
+                </li>
+                <li><a href="/register">注册</a></li>
+                <li><a href="/login">登录</a><span>|</span></li>
+                {% endif %}
+
+            </ul>
+        </div>
+    </div>
+</div>

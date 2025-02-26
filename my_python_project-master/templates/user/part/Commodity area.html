@@ -1,0 +1,15 @@
+<div class="m">
+        <!-- 商品 -->
+        <div class="w1 phone">
+            <h2>商品</h2>
+            <div class="phone-right right2">
+                {% for cate in products %}
+                <div><img src="{{ cate.images }}" alt="">
+                    <h3>{{ cate["pname"] }}</h3>
+                    <p>{{ cate.pname }}</p>
+                    <i>{{ cate["new_price"] }}元</i>&nbsp;<del>{{ cate["old_price"] }}元</del>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>

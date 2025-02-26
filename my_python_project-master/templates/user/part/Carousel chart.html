@@ -1,0 +1,44 @@
+<div class="w2 m1">
+        <div class="w1">
+            <div class="lbt">
+                <div class="button-left"></div>
+                <div class="button-right"><i></i></div>
+                <div class="hdm">
+                    <ul>
+                        {% for cate in categorys %}
+                        <li><div class="hdm-left"><a href="">{{ cate["cname"] }}</a><i>&gt;</i></div></li>
+                        {% endfor %}
+                            <div class="hdm-list">
+                                <ul>
+                                    {% for cate in products %}
+                                    <li><img src="{{ cate.images }}" alt=""><em class="color-change">{{ cate["pname"] }}</em></li>
+                                    {% endfor %}
+                                </ul>
+                                <ul>
+                                    {% for cate in products %}
+                                    <li><img src="{{ cate.images }}" alt=""><em class="color-change">{{ cate["pname"] }}</em></li>
+                                    {% endfor %}
+                                </ul>
+                                <ul>
+                                    {% for cate in products %}
+                                    <li><img src="{{ cate.images }}" alt=""><em class="color-change">{{ cate["pname"] }}</em></li>
+                                    {% endfor %}
+                                </ul>
+                                <ul>
+                                    {% for cate in products %}
+                                    <li><img src="{{ cate.images }}" alt=""><em class="color-change">{{ cate["pname"] }}</em></li>
+                                    {% endfor %}
+                                </ul>
+                            </div>
+
+                        </li>
+
+                        <li><div class="hdm-left"><a href="">电源 配件</a><i>&gt;</i></div></li>
+                        <li><div class="hdm-left"><a href="">健康</a><i>&gt;</i></div></li>
+                        <li><div class="hdm-left"><a href="">生活 箱包</a><i>&gt;</i></div></li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+    </div>

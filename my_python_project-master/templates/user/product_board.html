@@ -1,0 +1,55 @@
+{% extends 'user/base.html' %}
+{% block title %}
+    商品管理
+{% endblock %}
+
+{% block head %}
+    <link href="{{ url_for('static',filename='css/index.css') }}" rel="stylesheet" type="text/css"/>
+    <!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/ssi-uploader.css') }}">
+    <script type="text/javascript" src="{{ url_for('static',filename='js/index.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static',filename='js/jquery.jSlider.min.js') }}"></script>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/partialvxxiewslider.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/jSlider.min.css') }}">
+    <script src="{{ url_for('static',filename='js/login_mt.js') }}"></script>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/style_img.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='img_trans/default.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='img_trans/demo.css',v=2) }}">
+    <script type="text/javascript" src="{{ url_for('static',filename='js/dotdotdot.js') }}"></script>
+
+    <link href="{{ url_for('static', filename='css/bootstrap.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='css/clean-blog.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet">
+{% endblock %}
+
+{% block main %}
+<div class="container content">
+  <h1>商品管理后台 <small> 欢迎 {{session.username}}</small>
+    <a class="btn btn-success" href="/add_product" style="float:right"> 发布商品 </a>
+  </h1>
+  <hr>
+  <table class="table">
+    <tr>
+      <th>ID</th>
+      <th>商品名称</th>
+      <th>商品价格</th>
+      <th></th>
+      <th></th>
+    </tr>
+    {% for one_product in products %}
+      <tr>
+        <td> {{ one_product.id}}</td>
+        <td> {{ one_product.pname}}</td>
+        <td> {{ one_product.new_price}}</td>
+        <td><a href="#" class="btn btn-info" style="float:right">编辑</a></td>
+        <td>
+          <form action="{{url_for('delete_product', id=one_product.id)}}" method="post">
+            <input type="hidden" name="_method" value="DELETE">
+            <input type="submit" value="删除" class="btn btn-danger">
+          </form>
+        </td>
+      </tr>
+      {% endfor %}
+  </table>
+</div>
+{% endblock %}

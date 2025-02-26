@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>商品管理后台</title>
+
+
+        <!-- Bootstrap core CSS -->
+    <link href="{{ url_for('static', filename='css/bootstrap.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='css/clean-blog.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet">
+</head>
+<body>
+
+
+
+<div class="container content">
+  <h1>商品管理后台 <small> 欢迎 {{session.username}}</small>
+    <a class="btn btn-success" href="/add_article" style="float:right"> 发布商品 </a>
+  </h1>
+  <hr>
+  <table class="table">
+    <tr>
+      <th>ID</th>
+      <th>商品名称</th>
+      <th>商品价格</th>
+      <th></th>
+      <th></th>
+    </tr>
+
+      <tr>
+        <td>1</td>
+        <td>Apple iPhone XS Max (A2103) 64GB 金色 全网通（移动4G优先版） 双卡双待</td>
+        <td>7299</td>
+        <td><a href="#" class="btn btn-info" style="float:right">编辑</a></td>
+        <td>
+          <form action="#" method="post">
+            <input type="hidden" name="_method" value="DELETE">
+            <input type="submit" value="Delete" class="btn btn-danger">
+          </form>
+        </td>
+      </tr>
+  </table>
+</div>
+</body>
+</html>
